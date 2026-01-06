@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動物拼圖遊戲</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 30px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .puzzle-container {
+      position: relative;
+      width: 80vw; /* 設定容器寬度為視窗的 80% */
+      height: 80vh; /* 設定容器高度為視窗的 80% */
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .puzzle-piece {
+      position: absolute;
+      width: 10%; /* 每塊拼圖的寬度設為容器寬度的 10% */
+      height: 10%; /* 每塊拼圖的高度設為容器高度的 10% */
+      cursor: pointer;
+      background-size: cover; /* 讓圖片保留比例填滿拼圖塊 */
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+  </style>
+</head>
+<body>
+
+<h1>動物拼圖遊戲</h1>
+
+<div class="puzzle-container" id="puzzle-container">
+  <!-- 拼圖塊會動態生成 -->
+</div>
+
+<script>
+  const imageSrc = 'header拷貝.jpg';  // 記得替換成你想要的圖片路徑
+  const rows = 10;  // 行數
+  const cols = 10;  // 列數
+  const totalPieces = rows * cols; // 拼圖總數
+
+  const puzzleContainer = document.getElementById('puzzle-container');
+
+  // 用來生成拼圖塊的函數
+  function createPuzzlePieces() {
+    for (let i = 0; i < totalPieces; i++) {
+      const piece = document.createElement('div');
+      piece.classList.add('puzzle-piece');
+      
+      // 計算每個拼圖塊的行和列
+      const row = Math.floor(i / cols);
+      const col = i % cols;
+
+      // 計算背景位置，這會顯示圖片的一部分
+      const xOffset = -(col * 100 / cols); // 水平偏移
+      const yOffset = -(row * 100 / rows); // 垂直偏移
+
+      // 設定拼圖塊的背景圖和位置
+      piece.style.backgroundImage = `url(${imageSrc})`;
+      piece.style.backgroundPosition = `${xOffset}% ${yOffset}%`;  // 背景位置設置為每塊拼圖的部分區域
+
+      // 設定拼圖塊隨機的位置
+      piece.style.top = `${Math.random() * (puzzleContainer.offsetHeight - piece.offsetHeight)}px`;
+      piece.style.left = `${Math.random() * (puzzleContainer.offsetWidth - piece.offsetWidth)}px`;
+
+      piece.setAttribute('draggable', true);
+
+      // 監聽拖放事件
+      piece.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text', i);
+        e.target.style.opacity = '0.5';
+      });
+
+      piece.addEventListener('dragend', (e) => {
+        e.target.style.opacity = '1';
+      });
+
+      puzzleContainer.appendChild(piece);
+    }
+  }
+
+  // 允許拼圖塊放置
+  function enableDrop() {
+    puzzleContainer.addEventListener('dragover', (e) => {
+      e.preventDefault();
+    });
+
+    puzzleContainer.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const draggedIndex = e.dataTransfer.getData('text');
+      const draggedPiece = document.getElementsByClassName('puzzle-piece')[draggedIndex];
+      
+      const xPos = e.clientX - puzzleContainer.offsetLeft - draggedPiece.offsetWidth / 2;
+      const yPos = e.clientY - puzzleContainer.offsetTop - draggedPiece.offsetHeight / 2;
+      
+      draggedPiece.style.left = `${xPos}px`;
+      draggedPiece.style.top = `${yPos}px`;
+    });
+  }
+
+  // 初始化拼圖遊戲
+  function initPuzzle() {
+    createPuzzlePieces();
+    enableDrop();
+  }
+
+  window.onload = initPuzzle;
+
+</script>
+
+</body>
+</html>

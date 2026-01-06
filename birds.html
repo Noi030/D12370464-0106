@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>蜂鳥違反物理定律｜迷因新聞</title>
+<style>
+        body {
+            font-family: "Noto Sans TC", Arial, sans-serif;
+            background-color: #c9d4ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #1976d2;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .category {
+            color: #ff6f00;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.4;
+        }
+
+        .meta {
+            color: #777;
+            font-size: 14px;
+            margin: 10px 0 20px;
+        }
+
+        .news-img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .quote {
+            background: #f9f9f9;
+            border-left: 5px solid #ccc;
+            padding: 15px;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .actions {
+            margin: 30px 0;
+        }
+
+        .actions button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .like {
+            background-color: #fff3e0;
+        }
+
+        .share {
+            background-color: #e3f2fd;
+        }
+
+        .comments {
+            margin-top: 40px;
+        }
+
+        .comment {
+            background: #fafafa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="back-btn" onclick="history.back()">← 回上一頁</div>
+<div class="category">🪶 自然異象</div>
+
+<h1>懸停在空中不掉下來　路人懷疑蜂鳥違反物理定律</h1>
+<div class="meta">3 小時前 • 觀看數 10 萬</div>
+
+<img class="news-img" src="images/meebird.jpg">
+
+<div class="content">
+<p>一隻蜂鳥被目擊長時間停在空中，引發路人對重力是否仍在上班的疑問。</p>
+<p>目擊者表示：「牠完全沒掉下來，看起來像在讀取空氣。」</p>
+
+<div class="quote">「我不是飛，我只是暫時不想降落。」—— 蜂鳥</div>
+
+<p>專家指出，蜂鳥只是正常拍翅，但畫面實在過於反直覺。</p>
+</div>
+
+<div class="actions">
+<button class="like" id="likeBtn">👍 按讚 54,870</button>
+<button class="share" onclick="alert('已分享給物理老師')">🔁 分享</button>
+</div>
+
+<div class="comments">
+<h3>💬 網友留言</h3>
+<div class="comment">網友A：重力：？</div>
+<div class="comment">網友B：牠是不是卡住了</div>
+<div class="comment">網友C：這我在夢裡看過</div>
+</div>
+
+<footer>© 迷因日報 Meme Daily</footer>
+</div>
+
+<script>
+    let likeCount = 54870;
+    const likeBtn = document.getElementById('likeBtn');
+
+    likeBtn.addEventListener('click', () => {
+        likeCount++;
+        likeBtn.innerText = '👍 按讚 ' + likeCount.toLocaleString();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>電線不是裝飾｜迷因新聞</title>
+    <style>
+        body {
+            font-family: "Noto Sans TC", Arial, sans-serif;
+            background-color: #c9d4ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #1976d2;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .category {
+            color: #388e3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.4;
+        }
+
+        .meta {
+            color: #777;
+            font-size: 14px;
+            margin: 10px 0 20px;
+        }
+
+        .news-img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .quote {
+            background: #f9f9f9;
+            border-left: 5px solid #ccc;
+            padding: 15px;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .actions {
+            margin: 30px 0;
+        }
+
+        .actions button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .like {
+            background-color: #fff8e1;
+        }
+
+        .share {
+            background-color: #e3f2fd;
+        }
+
+        .comments {
+            margin-top: 40px;
+        }
+
+        .comment {
+            background: #fafafa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 回上一頁 -->
+    <div class="back-btn" onclick="history.back()">← 回上一頁</div>
+
+    <div class="category">🐦 都會觀察</div>
+
+    <h1>電線不是裝飾　麻雀聚會指定集合點曝光</h1>
+
+    <div class="meta">30 分鐘前 • 觀看數 1.5 萬</div>
+
+    <!-- 麻雀圖片 -->
+    <img
+        class="news-img"
+        src="images/bird.jpg"
+        alt="麻雀站在電線上"
+    >
+
+    <div class="content">
+        <p>
+            【本報現場直擊】多隻麻雀今日被目擊整齊排列於電線上，
+            疑似正在進行一場未公開的鳥類聚會，引發路人高度關注。
+        </p>
+
+        <p>
+            有民眾表示，這條電線平時毫不起眼，
+            但只要麻雀一站上去，立刻變成「鳥界聊天室」。
+        </p>
+
+        <div class="quote">
+            「你不站電線，你根本不知道大家都在哪。」—— 麻雀
+        </div>
+
+        <p>
+            專家分析，電線具備高度可視性與良好聊天距離，
+            是麻雀界公認的「不用訂位就能坐一排」的最佳聚會場所。
+        </p>
+
+        <p>
+            截至目前，麻雀們已陸續飛走，但該電線仍被視為
+            「隨時可能再次開會」的重點地段。
+        </p>
+    </div>
+
+    <!-- 假按鈕 -->
+    <div class="actions">
+        <button class="like" id="likeBtn">
+            👍 按讚 12,000
+        </button>
+        <button class="share" onclick="alert('你已成功分享給 0 隻麻雀')">
+            🔁 分享
+        </button>
+    </div>
+
+    <!-- 留言區 -->
+    <div class="comments">
+        <h3>💬 網友留言</h3>
+
+        <div class="comment">網友A：每天經過都看到牠們在開會</div>
+        <div class="comment">網友B：原來不是在排隊</div>
+        <div class="comment">網友C：電線：我只是想安靜一下</div>
+        <div class="comment">網友D：麻雀版社群平台</div>
+        <div class="comment">網友E：所以牠們到底在聊什麼</div>
+    </div>
+
+    <footer>
+        © 2026 迷因日報 Meme Daily｜本新聞純屬幽默
+    </footer>
+
+</div>
+
+<script>
+    let likeCount = 12000;
+    const likeBtn = document.getElementById('likeBtn');
+
+    likeBtn.addEventListener('click', () => {
+        likeCount++;
+        likeBtn.innerText = '👍 按讚 ' + likeCount.toLocaleString();
+    });
+</script>
+
+</body>
+</html>

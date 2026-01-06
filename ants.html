@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>地下間諜｜迷因新聞</title>
+    <style>
+        body {
+            font-family: "Noto Sans TC", Arial, sans-serif;
+            background-color: #c9d4ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #1976d2;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .category {
+            color: #2e7d32;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.4;
+        }
+
+        .meta {
+            color: #777;
+            font-size: 14px;
+            margin: 10px 0 20px;
+        }
+
+        .news-img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .quote {
+            background: #f9f9f9;
+            border-left: 5px solid #ccc;
+            padding: 15px;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .actions {
+            margin: 30px 0;
+        }
+
+        .actions button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .like {
+            background-color: #e8f5e9;
+        }
+
+        .share {
+            background-color: #e3f2fd;
+        }
+
+        .comments {
+            margin-top: 40px;
+        }
+
+        .comment {
+            background: #fafafa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 回上一頁 -->
+    <div class="back-btn" onclick="history.back()">← 回上一頁</div>
+
+    <div class="category">🐜 地面之下</div>
+
+    <h1>看似普通地上行者　實際上是地下間諜＋建築師＋搬運工</h1>
+
+    <div class="meta">15 小時前 • 觀看數 100 萬</div>
+
+    <!-- 螞蟻圖片 -->
+    <img
+        class="news-img"
+        src="images/ants.jpg"
+        alt="螞蟻搬運食物"
+    >
+
+    <div class="content">
+        <p>
+            【本報深入調查】你每天看到的螞蟻，
+            表面上只是隨意走動的地上行者，
+            其實背後身兼多項職務。
+        </p>
+
+        <p>
+            專家指出，螞蟻白天在地面活動的行為，
+            只是用來蒐集情報與物資，
+            真正的工作場域位於地底深處。
+        </p>
+
+        <div class="quote">
+            「我們只是路過，其實在上班。」—— 螞蟻
+        </div>
+
+        <p>
+            地下的蟻巢結構複雜，包含通風系統、
+            倉儲空間與交通動線，
+            堪稱微型城市。
+        </p>
+
+        <p>
+            截至截稿前，螞蟻仍持續在地面與地下之間往返，
+            完全沒有下班的打算。
+        </p>
+    </div>
+
+    <!-- 假按鈕 -->
+    <div class="actions">
+        <button class="like" id="likeBtn">
+            👍 按讚 150,000
+        </button>
+        <button class="share" onclick="alert('你已成功分享給整個蟻巢')">
+            🔁 分享
+        </button>
+    </div>
+
+    <!-- 留言區 -->
+    <div class="comments">
+        <h3>💬 網友留言</h3>
+
+        <div class="comment">網友A：原來我每天看到的是員工</div>
+        <div class="comment">網友B：牠們比我還準時上班</div>
+        <div class="comment">網友C：地下才是主舞台</div>
+        <div class="comment">網友D：我踩到的是公司嗎</div>
+        <div class="comment">網友E：這才叫多工處理</div>
+    </div>
+
+    <footer>
+        © 2026 迷因日報 Meme Daily｜本新聞純屬幽默
+    </footer>
+
+</div>
+
+<script>
+    let likeCount = 150000;
+    const likeBtn = document.getElementById('likeBtn');
+
+    likeBtn.addEventListener('click', () => {
+        likeCount++;
+        likeBtn.innerText = '👍 按讚 ' + likeCount.toLocaleString();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>地底小霸王｜迷因新聞</title>
+    <style>
+        body {
+            font-family: "Noto Sans TC", Arial, sans-serif;
+            background-color: #c9d4ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #1976d2;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .category {
+            color: #5d4037;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.4;
+        }
+
+        .meta {
+            color: #777;
+            font-size: 14px;
+            margin: 10px 0 20px;
+        }
+
+        .news-img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .quote {
+            background: #f9f9f9;
+            border-left: 5px solid #ccc;
+            padding: 15px;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .actions {
+            margin: 30px 0;
+        }
+
+        .actions button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .like {
+            background-color: #efebe9;
+        }
+
+        .share {
+            background-color: #e3f2fd;
+        }
+
+        .comments {
+            margin-top: 40px;
+        }
+
+        .comment {
+            background: #fafafa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 回上一頁 -->
+    <div class="back-btn" onclick="history.back()">← 回上一頁</div>
+
+    <div class="category">🐾 地底傳說</div>
+
+    <h1>地底小霸王　鼴鼠一天挖洞幾公里，地下世界比地面還熱鬧</h1>
+
+    <div class="meta">23 小時前 • 觀看數 105.1 萬</div>
+
+    <!-- 鼴鼠圖片 -->
+    <img
+        class="news-img"
+        src="images/yan.jpg"
+        alt="鼴鼠挖洞"
+    >
+
+    <div class="content">
+        <p>
+            【本報地底直擊】一隻鼴鼠近日被觀察到在短時間內
+            挖掘出大量地下通道，行為宛如地底施工隊。
+        </p>
+
+        <p>
+            專家表示，鼴鼠一天可挖掘數公里長的隧道，
+            地面對牠而言只是「入口標示」。
+        </p>
+
+        <div class="quote">
+            「你們只看到地面，我已經走很遠了。」—— 鼴鼠
+        </div>
+
+        <p>
+            地下世界對鼴鼠來說不僅安全，
+            還有完整的生活動線與工作空間，
+            熱鬧程度遠超地面。
+        </p>
+
+        <p>
+            截至截稿前，鼴鼠仍持續施工中，
+            尚未公布完工日期。
+        </p>
+    </div>
+
+    <!-- 假按鈕 -->
+    <div class="actions">
+        <button class="like" id="likeBtn">
+            👍 按讚 500,560
+        </button>
+        <button class="share" onclick="alert('你已成功分享給地下工程部')">
+            🔁 分享
+        </button>
+    </div>
+
+    <!-- 留言區 -->
+    <div class="comments">
+        <h3>💬 網友留言</h3>
+
+        <div class="comment">網友A：牠才是真正的土木系</div>
+        <div class="comment">網友B：我一天走不到一公里</div>
+        <div class="comment">網友C：地下比地面還忙</div>
+        <div class="comment">網友D：地面只是入口</div>
+        <div class="comment">網友E：這施工速度太扯</div>
+    </div>
+
+    <footer>
+        © 2026 迷因日報 Meme Daily｜本新聞純屬幽默
+    </footer>
+
+</div>
+
+<script>
+    let likeCount = 500560;
+    const likeBtn = document.getElementById('likeBtn');
+
+    likeBtn.addEventListener('click', () => {
+        likeCount++;
+        likeBtn.innerText = '👍 按讚 ' + likeCount.toLocaleString();
+    });
+</script>
+
+</body>
+</html>

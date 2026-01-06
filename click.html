@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>動物冷知識</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #dcf8ff;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .card {
+  width: 240px;      /* 原本 160 */
+  height: 280px;     /* 原本 180 */
+  background-color: #fff5c7;
+  border-radius: 16px;
+  font-size: 40px;   /* emoji 會更大 */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+
+   .card:hover {
+  transform: scale(1.15);
+}
+
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      width: 320px;
+      margin: 20% auto;
+      padding: 20px;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🐾 動物冷知識</h1>
+
+<div class="card-container">
+  <div id="card" class="card"></div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeModal()">×</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+    <button onclick="changeCard()" style="
+  margin-top: 20px;
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+">
+  🔄 換一張
+</button>
+
+  </div>
+</div>
+
+  <script>
+ const animals = [
+  { emoji: "🐘", name: "大象", fact: "大象雖然很大，但其實怕蜜蜂" },
+  { emoji: "🐙", name: "章魚", fact: "章魚有三顆心臟，但還是會被嚇到變色" },
+  { emoji: "🐧", name: "企鵝", fact: "企鵝走路像在趕時間，但其實不趕" },
+  { emoji: "🦒", name: "長頸鹿", fact: "長頸鹿幾乎沒有聲音，安靜到像潛行模式" },
+  { emoji: "🐬", name: "海豚", fact: "海豚會互相惡作劇，也會笑" },
+  { emoji: "🐌", name: "蝸牛", fact: "蝸牛跑得慢，但睡覺可以睡三年" },
+  { emoji: "🦉", name: "貓頭鷹", fact: "貓頭鷹轉頭不是帥，是因為眼睛不能動" },
+  { emoji: "🐝", name: "蜜蜂", fact: "蜜蜂靠跳舞上班，是真的跳舞" },
+  { emoji: "🐢", name: "烏龜", fact: "有些烏龜用屁股呼吸，真的不是開玩笑" },
+  { emoji: "🦈", name: "鯊魚", fact: "鯊魚睡覺時還在游，不然會沒空氣" },
+
+  { emoji: "🐫", name: "駱駝", fact: "駱駝的駝峰不是水壺，是脂肪倉庫" },
+  { emoji: "🐊", name: "鱷魚", fact: "鱷魚不能吐舌頭，但表情看起來很兇" },
+  { emoji: "🐓", name: "雞", fact: "雞能認得超過 100 張臉，比你還會記" },
+  { emoji: "🐖", name: "豬", fact: "豬其實很聰明，只是被誤會很久" },
+  { emoji: "🐀", name: "老鼠", fact: "老鼠會笑，只是人類聽不到" },
+  { emoji: "🦋", name: "蝴蝶", fact: "蝴蝶用腳吃飯，嘴巴只是裝飾" },
+  { emoji: "🐕", name: "狗", fact: "狗轉圈不是賣萌，是在確認地板安全" },
+  { emoji: "🐈", name: "貓", fact: "貓會無視你，不是討厭，是牠在想事情" },
+  { emoji: "🦘", name: "袋鼠", fact: "袋鼠不能後退，所以倒車技術是 0" },
+  { emoji: "🐄", name: "牛", fact: "牛有好朋友，被分開會心情不好" },
+
+  { emoji: "🐦", name: "鳥", fact: "有些鳥可以站著睡覺，完全不會倒" },
+  { emoji: "🐟", name: "魚", fact: "魚也會口渴，只是喝水方式不同" },
+  { emoji: "🦭", name: "海豹", fact: "海豹在水裡睡覺，看起來像在發呆" },
+  { emoji: "🦥", name: "樹懶", fact: "樹懶消化一餐可能要一個月" },
+  { emoji: "🦦", name: "水獺", fact: "水獺睡覺會牽手，怕醒來朋友不見" },
+  { emoji: "🐿️", name: "松鼠", fact: "松鼠會假裝藏食物來騙別人" },
+  { emoji: "🦌", name: "鹿", fact: "鹿的角每年都會掉光再重長" },
+  { emoji: "🐼", name: "熊貓", fact: "熊貓一天可以吃飯吃 12 小時" },
+  { emoji: "🐨", name: "無尾熊", fact: "無尾熊一天大多時間都在睡覺" },
+  { emoji: "🐯", name: "老虎", fact: "老虎的皮膚也有條紋，不只是毛" },
+
+  { emoji: "🦁", name: "獅子", fact: "母獅負責打獵，公獅負責看起來很忙" },
+  { emoji: "🐺", name: "狼", fact: "狼嚎叫不是耍帥，是在聯絡朋友" },
+  { emoji: "🦊", name: "狐狸", fact: "狐狸會用地磁場精準跳撲獵物" },
+  { emoji: "🐸", name: "青蛙", fact: "青蛙不用喝水，用皮膚就好" },
+  { emoji: "🐒", name: "猴子", fact: "有些猴子會用工具，還會偷看人類" },
+  { emoji: "🦜", name: "鸚鵡", fact: "鸚鵡模仿人說話，不一定懂你在說什麼" },
+  { emoji: "🐻", name: "熊", fact: "熊的嗅覺比狗還靈，但還是會迷路" },
+  { emoji: "🦝", name: "浣熊", fact: "浣熊洗食物只是習慣，不是真的講究" },
+  { emoji: "🐾", name: "冷知識", fact: "動物的世界比你想像的還要戲劇化" }
+];
+
+
+  const card = document.getElementById("card");
+  let currentAnimal = null;
+
+  // 🔹 顯示一張卡片
+  function showRandomCard() {
+    let random;
+    do {
+      random = animals[Math.floor(Math.random() * animals.length)];
+    } while (random === currentAnimal); // 避免連續出現同一張
+
+    currentAnimal = random;
+
+    card.innerHTML = `${random.emoji}<br>${random.name}`;
+    card.onclick = () => {
+      openModal(
+        random.emoji + " " + random.name,
+        random.fact
+      );
+    };
+  }
+
+  // 🔄 換一張按鈕
+  function changeCard() {
+    closeModal(); // 若彈窗開著，先關掉
+    showRandomCard();
+  }
+
+  // 頁面載入時先顯示一張
+  showRandomCard();
+
+  function openModal(title, text) {
+    document.getElementById("modal-title").innerText = title;
+    document.getElementById("modal-text").innerText = text;
+    document.getElementById("modal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

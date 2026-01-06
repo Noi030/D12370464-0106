@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>慢慢飄的哲學｜迷因新聞</title>
+    <style>
+        body {
+            font-family: "Noto Sans TC", Arial, sans-serif;
+            background-color: #c9d4ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #1976d2;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .category {
+            color: #0288d1;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.4;
+        }
+
+        .meta {
+            color: #777;
+            font-size: 14px;
+            margin: 10px 0 20px;
+        }
+
+        .news-img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .quote {
+            background: #f9f9f9;
+            border-left: 5px solid #ccc;
+            padding: 15px;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .actions {
+            margin: 30px 0;
+        }
+
+        .actions button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .like {
+            background-color: #e1f5fe;
+        }
+
+        .share {
+            background-color: #e3f2fd;
+        }
+
+        .comments {
+            margin-top: 40px;
+        }
+
+        .comment {
+            background: #fafafa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 回上一頁 -->
+    <div class="back-btn" onclick="history.back()">← 回上一頁</div>
+
+    <div class="category">🐴 海洋慢活</div>
+
+    <h1>長得像馬卻不會跑　海馬一輩子都在慢慢飄</h1>
+
+    <div class="meta">昨天 • 觀看數 220 萬</div>
+
+    <!-- 海馬圖片 -->
+    <img
+        class="news-img"
+        src="images/seaho.jpg"
+        alt="海馬在水中慢慢漂浮"
+    >
+
+    <div class="content">
+        <p>
+            【本報海流追蹤】海馬近日再次成為話題焦點，
+            原因不是速度，而是牠始終如一的慢。
+        </p>
+
+        <p>
+            雖然外型神似馬，但海馬並不奔跑，
+            日常移動方式以隨波漂流為主，
+            被形容為「對時間毫無壓力的生物代表」。
+        </p>
+
+        <div class="quote">
+            「急什麼，我們會到的。」—— 海馬
+        </div>
+
+        <p>
+            海洋學者指出，海馬的生活哲學在於
+            節省能量、順勢而為，
+            即使今天沒有移動太多，
+            也不會因此感到焦慮。
+        </p>
+
+        <p>
+            截至目前，該海馬仍持續慢慢飄著，
+            沒有任何加速計畫。
+        </p>
+    </div>
+
+    <!-- 假按鈕 -->
+    <div class="actions">
+    <button class="like" id="likeBtn">
+        👍 按讚 120,000
+    </button>
+    <button class="share" onclick="alert('你已成功分享給慢慢來協會')">
+        🔁 分享
+    </button>
+</div>
+
+
+    <!-- 留言區 -->
+    <div class="comments">
+        <h3>💬 網友留言</h3>
+
+        <div class="comment">網友A：牠活成我想要的樣子</div>
+        <div class="comment">網友B：時間在牠面前都放慢了</div>
+        <div class="comment">網友C：真正的慢活代表</div>
+        <div class="comment">網友D：看了心情都平靜了</div>
+        <div class="comment">網友E：今天也想一起慢慢飄</div>
+    </div>
+
+    <footer>
+        © 2026 迷因日報 Meme Daily｜本新聞純屬幽默
+    </footer>
+
+</div>
+
+<script>
+    let likeCount = 120000;
+    const likeBtn = document.getElementById('likeBtn');
+
+    likeBtn.addEventListener('click', () => {
+        likeCount++;
+        likeBtn.innerText = '👍 按讚 ' + likeCount.toLocaleString();
+    });
+</script>
+
+</body>
+</html>

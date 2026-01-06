@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>最宅海洋居民｜迷因新聞</title>
+    <style>
+        body {
+            font-family: "Noto Sans TC", Arial, sans-serif;
+            background-color: #c9d4ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #1976d2;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .category {
+            color: #ff6f00;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.4;
+        }
+
+        .meta {
+            color: #777;
+            font-size: 14px;
+            margin: 10px 0 20px;
+        }
+
+        .news-img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .quote {
+            background: #f9f9f9;
+            border-left: 5px solid #ccc;
+            padding: 15px;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        .actions {
+            margin: 30px 0;
+        }
+
+        .actions button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .like {
+            background-color: #fff3e0;
+        }
+
+        .share {
+            background-color: #e3f2fd;
+        }
+
+        .comments {
+            margin-top: 40px;
+        }
+
+        .comment {
+            background: #fafafa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 回上一頁 -->
+    <div class="back-btn" onclick="history.back()">← 回上一頁</div>
+
+    <div class="category">🐠 海底觀察</div>
+
+    <h1>一生幾乎不離家　小丑魚被評為最宅海洋居民</h1>
+
+    <div class="meta">8 小時前 • 觀看數 22.5 萬</div>
+
+    <!-- 小丑魚圖片 -->
+    <img
+        class="news-img"
+        src="images/fish.jpg"
+        alt="小丑魚與海葵"
+    >
+
+    <div class="content">
+        <p>
+            【本報海底連線】小丑魚近日被海洋觀察者評選為
+            「最宅海洋居民」，原因是一生幾乎不離開自家海葵半步。
+        </p>
+
+        <p>
+            目擊潛水員表示，小丑魚每天的行程高度固定，
+            包含：待在海葵裡、稍微探頭、再回到海葵裡。
+        </p>
+
+        <div class="quote">
+            「外面風浪太大，我家剛剛好。」—— 小丑魚
+        </div>
+
+        <p>
+            海洋專家指出，海葵不只是住所，更是小丑魚的
+            安全感來源與固定座位，堪稱海底版「不想出門的完美理由」。
+        </p>
+
+        <p>
+            截至目前，小丑魚依然待在原地，
+            並表示短期內沒有任何外出的打算。
+        </p>
+    </div>
+
+    <!-- 假按鈕 -->
+    <div class="actions">
+        <button class="like" id="likeBtn">
+            👍 按讚 21,030
+        </button>
+        <button class="share" onclick="alert('你已成功分享給 0 條魚')">
+            🔁 分享
+        </button>
+    </div>
+
+    <!-- 留言區 -->
+    <div class="comments">
+        <h3>💬 網友留言</h3>
+
+        <div class="comment">網友A：這是我理想的人生</div>
+        <div class="comment">網友B：魚界在家上班</div>
+        <div class="comment">網友C：有海葵誰還出門</div>
+        <div class="comment">網友D：我連探頭都懶</div>
+        <div class="comment">網友E：宅得很有說服力</div>
+    </div>
+
+    <footer>
+        © 2026 迷因日報 Meme Daily｜本新聞純屬幽默
+    </footer>
+
+</div>
+
+<script>
+    let likeCount = 21030;
+    const likeBtn = document.getElementById('likeBtn');
+
+    likeBtn.addEventListener('click', () => {
+        likeCount++;
+        likeBtn.innerText = '👍 按讚 ' + likeCount.toLocaleString();
+    });
+</script>
+
+</body>
+</html>
